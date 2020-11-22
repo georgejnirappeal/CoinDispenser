@@ -1,7 +1,7 @@
 # CoinDispenser
 CoinDispenser
 
-To start the project set up the db in my sql and configure the connection details in the applicaiton.properties 
+To start the project, set up the db in my sql and configure the connection details in the applicaiton.properties 
 
 Run the src\main\resources\DB_SCRIPTS.sql for creating the table and seeding the required data.
 
