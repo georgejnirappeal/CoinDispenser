@@ -49,7 +49,7 @@ public class CoinDispenserControllerTest extends TestBase {
 	
 	@Test 
 	@Order(3)
-	@Sql({"/cd_reset.sql"})
+	@Sql({TestBase.RESET_DATA_SCRIPT})
 	//Resetting the inmemory db with coin type 0.01,0.05,0.10,0.25 with 100 count during the app start up
 	void testDispenseCoinsMostNumberOfCoins() {
 		ResponseEntity<DispenseResponseJson> resp = controller.dispenseCoin(10, "false");
@@ -152,7 +152,7 @@ public class CoinDispenserControllerTest extends TestBase {
 	
 	@Test 
 	@Order(4)
-	@Sql({"/cd_reset.sql"})
+	@Sql({TestBase.RESET_DATA_SCRIPT})
 	//Resetting the inmemory db with coin type 0.01,0.05,0.10,0.25 with 100 count during the app start up
 	void testDispenseCoinsLeastNumberOfCoins() {
 		ResponseEntity<DispenseResponseJson> resp = controller.dispenseCoin(10, "true");
@@ -242,7 +242,7 @@ public class CoinDispenserControllerTest extends TestBase {
 
 	@Test 
 	@Order(5)
-	@Sql({"/cd_reset.sql"})
+	@Sql({TestBase.RESET_DATA_SCRIPT})
 	//Resetting the inmemory db with coin type 0.01,0.05,0.10,0.25 with 100 count during the app start up
 	void testDispenseCoinsNumberOfCoinsInMixedMode() {
 		ResponseEntity<DispenseResponseJson> resp = controller.dispenseCoin(10, "true");
