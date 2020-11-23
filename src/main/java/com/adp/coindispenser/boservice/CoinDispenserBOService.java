@@ -29,6 +29,16 @@ public class CoinDispenserBOService implements ICoinDispenserBOService {
 	@Autowired
 	private ICoinDispenserDAO dao;
 
+	/**
+	 * This method will fetch the available coins in the desired order and process
+	 * it, if the change for requested amount find the retrieved coins will
+	 * decrement from the db by a batch update, otherwise application will throw a
+	 * CDChangeNotAvailabeException.
+	 * 
+	 * @param requestedAmount int
+	 * @param sortOrderAsc    boolean
+	 * @return List<CoinBO>
+	 */
 	@Transactional
 	public List<CoinBO> displenseCoins(int requestedAmount, boolean sortOrderAsc) {
 		LOGGER.info("displenseCoins started requestedAmount: {} sortOrderAsc : {} ", requestedAmount,  sortOrderAsc);
@@ -90,6 +100,11 @@ public class CoinDispenserBOService implements ICoinDispenserBOService {
 
 	}
 
+	/**
+	 * This method will create a List<CoinBO> from the processedCoinsMap
+	 * @param processedCoinsMap
+	 * @return List<CoinBO>
+	 */
 	private List<CoinBO> createCoinBOList(Map<Float, Integer> processedCoinsMap) {
 		List<CoinBO> boList = null;
 		if (processedCoinsMap != null && !processedCoinsMap.isEmpty()) {

@@ -11,6 +11,12 @@ import com.adp.coindispenser.responsejson.DispenseResponseJson;
 @RequestMapping("/dispense")
 public interface ICoinDispenserController {
 
+	/**
+	 * Rest method for dispenseCoin.
+	 * @param amount
+	 * @param leastNumberOfCoins
+	 * @return
+	 */
 	@GetMapping("{amount}")
 	public ResponseEntity<DispenseResponseJson> dispenseCoin(@PathVariable("amount") int amount,
 			@RequestParam(value = "leastNumberOfCoins", defaultValue = "true") String leastNumberOfCoins);
