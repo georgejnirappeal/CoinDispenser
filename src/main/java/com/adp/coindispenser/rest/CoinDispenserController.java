@@ -37,7 +37,7 @@ public class CoinDispenserController implements ICoinDispenserController{
 		DispenseResponseJson dispenseResponseJson =  new DispenseResponseJson();
 		dispenseResponseJson.addCoins(coinResponseJsonList);
 		
-		LOGGER.info("Outgoing Response " + dispenseResponseJson);
+		LOGGER.info("Outgoing Response {}",  dispenseResponseJson);
 
 		return new ResponseEntity<DispenseResponseJson>(dispenseResponseJson, HttpStatus.OK);
 	}
